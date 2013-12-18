@@ -28,12 +28,47 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
 </head>
 
 <body <?php body_class(); ?>>
 <div>
 	<header>
-            
+            <div class="banniere">
+                TEST
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+                            <?php bloginfo('name'); ?>
+                        </a>
+                    </div>
+
+                    <?php
+                        wp_nav_menu( array(
+                            'menu'              => 'primary',
+                            'theme_location'    => 'primary',
+                            'depth'             => 2,
+                            'container'         => 'div',
+                            'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+                            'menu_class'        => 'nav navbar-nav',
+                            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                            'walker'            => new wp_bootstrap_navwalker())
+                        );
+                    ?>
+                </div>
+            </nav>
 	</header><!-- #masthead -->
 
 	<div>
